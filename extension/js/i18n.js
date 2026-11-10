@@ -1,0 +1,107 @@
+(function (root) {
+  "use strict";
+  var messages = {
+    ko: {
+      headline:"아이디어를 레이어로.",intro:"원하는 모션을 설명하고, 작업을 확인한 뒤 실행하세요.",
+      connection:"AI 연결",provider:"사용할 AI",model:"모델 ID",apiKey:"API 키",clearKey:"키 지우기",
+      request:"만들고 싶은 작업",promptPlaceholder:"예: 중앙에 'BEAT' 텍스트를 만들고, 0초부터 0.8초까지 아래에서 올라오며 나타나게 해줘. 널에 연결해줘.",
+      presetTitle:"키네틱 타이틀",presetNull:"널 컨트롤",presetShape:"도형 모션",
+      shareContext:"현재 컴포지션 정보를 AI에 포함",contextHint:"크기·길이·FPS·현재 시간만 전달합니다. 영상이나 파일은 업로드하지 않습니다.",
+      generate:"작업 생성",cancel:"취소",demo:"AI 연결 없이 데모 사용",preview:"실행 미리보기",emptyPreview:"작업을 생성하면 여기에 표시됩니다.",
+      jsonDetails:"작업 JSON 보기",apply:"AE에서 실행",undoHint:"새 레이어를 만듭니다. 실행 후 Ctrl/Cmd + Z 한 번으로 되돌릴 수 있습니다.",
+      localHint:"Ollama를 실행하고 모델을 준비하세요. 구독·API 키 없이 PC에서 처리합니다.",
+      apiHint:"해당 서비스의 API 키와 사용 가능한 모델 ID가 필요합니다. 이용료는 제공자의 API 정책을 따릅니다. 키는 패널을 닫으면 지워집니다.",
+      modelPlaceholder:"사용 가능한 API 모델 ID",localModelPlaceholder:"예: qwen2.5:7b",
+      hostPreview:"브라우저 미리보기 · AE에 설치하면 실행할 수 있습니다.",hostReady:"After Effects 연결됨",hostComp:"현재 컴포지션: {name}",
+      loading:"현재 컴포지션을 확인하고 있습니다…",generating:"AI가 작업 목록을 만들고 있습니다…",applying:"After Effects에서 작업을 실행하고 있습니다…",
+      ready:"{count}개 작업을 확인한 뒤 ‘AE에서 실행’을 누르세요.",emptyPlan:"AI가 실행 가능한 작업을 제안하지 않았습니다. 설명을 확인하고 요청을 구체적으로 적어보세요.",
+      demoReady:"데모 작업입니다. API 호출 없이 널·텍스트·도형 애니메이션을 만듭니다.",
+      done:"완료: 레이어 {layers}개를 만들었습니다. Ctrl/Cmd + Z로 되돌릴 수 있습니다.",
+      cancelled:"요청을 취소했습니다.",invalidated:"설정이나 요청이 바뀌었습니다. 작업을 다시 생성하세요.",
+      missingPrompt:"만들고 싶은 작업을 입력하세요.",missingModel:"사용할 모델 ID를 입력하세요.",missingKey:"선택한 서비스의 API 키를 입력하세요.",
+      noHost:"AE 안에서 패널을 열어 실행하세요. 지금은 데모 미리보기를 사용할 수 있습니다.",
+      genericError:"작업을 완료하지 못했습니다: {detail}",partialError:"일부 작업이 남아 있을 수 있습니다. AE에서 Ctrl/Cmd + Z로 되돌린 뒤 다시 시도하세요. {detail}",
+      rolledBack:"실행을 완료하지 못했습니다. 생성 중이던 항목을 정리했습니다. {detail}",
+      AUTH:"API 키와 계정 권한을 확인하세요.",RATE_LIMIT:"요청 한도 또는 잔액을 확인한 뒤 다시 시도하세요.",
+      TIMEOUT:"응답 시간이 초과되었습니다. 로컬 모델은 실행 상태와 PC 사양도 확인하세요.",NETWORK:"AI에 연결하지 못했습니다. 인터넷 연결 또는 Ollama 실행 상태를 확인하세요.",
+      RESPONSE:"AI 응답을 읽지 못했습니다. 모델 ID와 지원 기능을 확인하고 다시 시도하세요.",REFUSAL:"AI가 이 요청을 처리하지 않았습니다. 요청 내용을 바꿔보세요.",
+      INCOMPLETE:"AI 응답이 끝나기 전에 잘렸습니다. 작업을 더 작게 나누어 요청하세요.",
+      INVALID_PLAN:"AE에서 실행할 수 없는 작업입니다. 지원되는 기능으로 다시 요청하세요.",UNSUPPORTED_RUNTIME:"CEP Node.js를 사용할 수 없습니다. 설치 방법을 확인하세요.",
+      create_comp:"컴포지션 만들기",create_null:"널 만들기",create_text:"텍스트 만들기",create_solid:"솔리드 만들기",create_shape:"도형 만들기",create_adjustment:"조정 레이어 만들기",
+      set_transform:"Transform 설정",animate:"키프레임 애니메이션",set_parent:"부모 연결",add_marker:"컴포지션 마커 추가",
+      titlePrompt:"현재 컴포지션 중앙에 BEAT 텍스트를 만들고 흰색 120px로 설정해줘. 0초에서 0.8초 사이 아래에서 위로 100px 이동하면서 opacity가 0에서 100으로 나타나게 하고 ease로 부드럽게 해줘. 텍스트를 새 널에 연결해줘. 컴포지션이 없으면 1920x1080, 30fps, 10초로 만들어줘.",
+      nullPrompt:"현재 컴포지션 중앙에 MAIN_CTRL 널 하나를 만들고, 흰색 원 도형 하나를 만들어 그 널에 연결해줘. 기존 레이어는 그대로 두고 새 레이어만 만들어줘. 컴포지션이 없으면 새 컴포지션을 만들어줘.",
+      shapePrompt:"현재 컴포지션에 민트색 사각형 하나와 흰색 원 하나를 만들고, 0초부터 1초까지 scale이 0에서 100으로 커지게 ease 키프레임을 넣어줘. 위치는 서로 겹치지 않게 배치해줘. 기존 레이어는 유지해줘. 컴포지션이 없으면 새로 만들어줘."
+    },
+    en: {
+      headline:"Ideas into layers.",intro:"Describe the motion. Review the steps. Bring it into AE.",
+      connection:"Connect your AI",provider:"AI provider",model:"Model ID",apiKey:"API key",clearKey:"Clear key",
+      request:"What would you like to create?",promptPlaceholder:"Example: Create centered 'BEAT' text. Animate it upward and fade in from 0 to 0.8 seconds. Parent it to a new null.",
+      presetTitle:"Kinetic title",presetNull:"Null control",presetShape:"Shape motion",
+      shareContext:"Include current composition metrics",contextHint:"Only dimensions, duration, FPS and current time are sent. No footage or files are uploaded.",
+      generate:"Generate steps",cancel:"Cancel",demo:"Try a demo without AI",preview:"Execution preview",emptyPreview:"Your generated steps will appear here.",
+      jsonDetails:"View plan JSON",apply:"Run in AE",undoHint:"Creates new layers. Undo the entire run with one Ctrl/Cmd + Z.",
+      localHint:"Run Ollama and prepare a model. Processing stays on your PC, without a subscription or API key.",
+      apiHint:"Requires this provider's API key and an available model ID. Provider API charges may apply. Keys are cleared when this panel closes.",
+      modelPlaceholder:"An available API model ID",localModelPlaceholder:"Example: qwen2.5:7b",
+      hostPreview:"Browser preview · Install in AE to run steps.",hostReady:"Connected to After Effects",hostComp:"Current composition: {name}",
+      loading:"Reading the current composition…",generating:"AI is creating your steps…",applying:"Running steps in After Effects…",
+      ready:"Review {count} steps, then select Run in AE.",emptyPlan:"The AI did not propose executable steps. Read its explanation and make your request more specific.",
+      demoReady:"Demo: creates an animated null, text and shape without an API call.",
+      done:"Done: created {layers} layers. Use Ctrl/Cmd + Z to undo.",cancelled:"Request cancelled.",invalidated:"Settings or prompt changed. Generate a fresh plan.",
+      missingPrompt:"Describe what you want to create.",missingModel:"Enter a model ID.",missingKey:"Enter the selected provider's API key.",
+      noHost:"Open this panel inside After Effects to run it. Demo preview is available here.",
+      genericError:"Could not finish: {detail}",partialError:"Some changes may remain. Use Ctrl/Cmd + Z in AE before retrying. {detail}",
+      rolledBack:"The run failed. Newly created items were cleaned up. {detail}",
+      AUTH:"Check the API key and account permissions.",RATE_LIMIT:"Check your rate limit or API balance, then retry.",
+      TIMEOUT:"The request timed out. For local models, also check Ollama and PC performance.",NETWORK:"Could not connect. Check the network or whether Ollama is running.",
+      RESPONSE:"Could not read the AI response. Check the model ID and its supported features.",REFUSAL:"The AI declined this request. Try rephrasing it.",
+      INCOMPLETE:"The AI response was cut off. Request a smaller set of steps.",
+      INVALID_PLAN:"This plan contains unsupported AE operations. Try a supported request.",UNSUPPORTED_RUNTIME:"CEP Node.js is unavailable. Check the installation instructions.",
+      create_comp:"Create composition",create_null:"Create null",create_text:"Create text",create_solid:"Create solid",create_shape:"Create shape",create_adjustment:"Create adjustment layer",
+      set_transform:"Set transform",animate:"Animate keyframes",set_parent:"Set parent",add_marker:"Add composition marker",
+      titlePrompt:"Create centered white BEAT text at 120px in the current composition. From 0 to 0.8s, animate it upward by 100px and fade opacity from 0 to 100 with ease. Parent it to a new null. If no composition is open, create a 1920x1080, 30fps, 10-second composition.",
+      nullPrompt:"Create a MAIN_CTRL null at the center of the current composition, add one white circle and parent it to the null. Preserve existing layers. If no composition is open, create one.",
+      shapePrompt:"Create a mint rectangle and a white circle, positioned without overlap, in the current composition. Animate each scale from 0 to 100 over 0 to 1 second using ease. Preserve existing layers. Create a composition if none is open."
+    },
+    "zh-CN": {
+      headline:"让想法变成图层。",intro:"描述想要的动画，检查步骤，然后在 AE 中执行。",
+      connection:"连接 AI",provider:"AI 服务",model:"模型 ID",apiKey:"API 密钥",clearKey:"清除密钥",
+      request:"想创建什么？",promptPlaceholder:"例如：在中央创建 BEAT 文字，在 0 到 0.8 秒内从下方上移并淡入，然后连接到新的空对象。",
+      presetTitle:"动态标题",presetNull:"空对象控制",presetShape:"形状动画",
+      shareContext:"向 AI 提供当前合成信息",contextHint:"仅发送尺寸、时长、帧率和当前时间，不上传素材或文件。",
+      generate:"生成步骤",cancel:"取消",demo:"无需 AI 连接，试用演示",preview:"执行预览",emptyPreview:"生成的步骤将显示在这里。",
+      jsonDetails:"查看任务 JSON",apply:"在 AE 中执行",undoHint:"创建新图层。一次 Ctrl/Cmd + Z 即可撤销整个操作。",
+      localHint:"请启动 Ollama 并准备模型。在本机运行，无需订阅或 API 密钥。",
+      apiHint:"需要该服务的 API 密钥和可用模型 ID。API 费用遵循服务商政策。关闭面板后密钥会被清除。",
+      modelPlaceholder:"可用的 API 模型 ID",localModelPlaceholder:"例如：qwen2.5:7b",
+      hostPreview:"浏览器预览 · 安装到 AE 后即可执行。",hostReady:"已连接 After Effects",hostComp:"当前合成：{name}",
+      loading:"正在读取当前合成…",generating:"AI 正在生成步骤…",applying:"正在 After Effects 中执行…",
+      ready:"请检查 {count} 个步骤，然后选择“在 AE 中执行”。",emptyPlan:"AI 没有生成可执行步骤，请阅读说明并具体描述需求。",
+      demoReady:"演示任务：无需 API 调用即可创建空对象、文字和形状动画。",
+      done:"完成：已创建 {layers} 个图层。可用 Ctrl/Cmd + Z 撤销。",cancelled:"已取消请求。",invalidated:"设置或需求已改变，请重新生成步骤。",
+      missingPrompt:"请描述想创建的内容。",missingModel:"请输入模型 ID。",missingKey:"请输入所选服务的 API 密钥。",
+      noHost:"请在 After Effects 中打开面板以执行操作。此处可以预览演示。",
+      genericError:"无法完成：{detail}",partialError:"可能仍有部分更改。请先在 AE 中按 Ctrl/Cmd + Z 撤销，再重试。{detail}",
+      rolledBack:"执行失败，已清理本次新建的项目。{detail}",
+      AUTH:"请检查 API 密钥和账户权限。",RATE_LIMIT:"请检查请求限额或 API 余额后重试。",
+      TIMEOUT:"请求超时。使用本地模型时请检查 Ollama 和电脑性能。",NETWORK:"无法连接，请检查网络或 Ollama 是否正在运行。",
+      RESPONSE:"无法读取 AI 响应，请检查模型 ID 及其支持的功能。",REFUSAL:"AI 未处理此请求，请尝试改写。",
+      INCOMPLETE:"AI 响应被截断，请减少一次请求的任务数量。",
+      INVALID_PLAN:"包含不支持的 AE 操作，请使用支持的功能。",UNSUPPORTED_RUNTIME:"CEP Node.js 不可用，请检查安装步骤。",
+      create_comp:"创建合成",create_null:"创建空对象",create_text:"创建文字",create_solid:"创建纯色层",create_shape:"创建形状",create_adjustment:"创建调整图层",
+      set_transform:"设置变换",animate:"关键帧动画",set_parent:"设置父级",add_marker:"添加合成标记",
+      titlePrompt:"在当前合成中心创建白色 BEAT 文字，字号120。从0到0.8秒向上移动100像素，同时不透明度从0到100，使用缓动。连接到一个新空对象。如果没有打开合成，请创建1920x1080、30fps、10秒的合成。",
+      nullPrompt:"在当前合成中心创建 MAIN_CTRL 空对象，创建白色圆形并连接到空对象。保留现有图层。如果没有打开合成，请创建合成。",
+      shapePrompt:"在当前合成中创建薄荷色矩形和白色圆形，位置不要重叠。在0到1秒之间使各自的缩放从0变为100，使用缓动。保留现有图层。如果没有合成，请新建合成。"
+    }
+  };
+  function translate(locale, key, params) {
+    var message = (messages[locale] || messages.en)[key] || messages.en[key] || key;
+    return message.replace(/\{([a-zA-Z]+)\}/g, function (_, name) {
+      return params && params[name] !== undefined ? String(params[name]) : "";
+    });
+  }
+  root.AEAILocale = { messages: messages, t: translate };
+  if (typeof module === "object" && module.exports) { module.exports = root.AEAILocale; }
+}(this));

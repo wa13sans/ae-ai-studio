@@ -1,0 +1,9 @@
+{
+  "name": "ae-ai-studio",
+  "version": "1.0.0-beta.1",
+  "description": "An MIT-licensed After Effects CEP panel for AI-assisted motion graphics.",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test", "package": "node scripts/package.js" }
+}

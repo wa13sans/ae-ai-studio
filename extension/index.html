@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AE AI Studio · Beta 1.0.0</title>
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="logo" aria-hidden="true">A<span>·</span></span><div><h1>AE AI Studio</h1><span class="version">BETA 1.0.0</span></div></div>
+    <select id="language" aria-label="Language"><option value="ko">한국어</option><option value="en">English</option><option value="zh-CN">简体中文</option></select>
+  </header>
+  <main>
+    <p class="eyebrow">AFTER EFFECTS AUTOMATION</p>
+    <h2 data-i18n="headline">아이디어를 레이어로.</h2>
+    <p class="intro" data-i18n="intro">원하는 모션을 설명하고, 작업을 확인한 뒤 실행하세요.</p>
+    <div id="host-status" class="host-status" role="status"></div>
+    <section class="card connection">
+      <div class="section-heading"><span class="step">01</span><h3 data-i18n="connection">AI 연결</h3><span class="dot" aria-hidden="true"></span></div>
+      <label for="provider" data-i18n="provider">사용할 AI</label>
+      <select id="provider"><option value="ollama">Ollama · Local</option><option value="openai">OpenAI · GPT</option><option value="anthropic">Anthropic · Claude</option></select>
+      <div class="field"><label for="model" data-i18n="model">모델 ID</label><input id="model" type="text" maxlength="120" autocomplete="off" spellcheck="false" value="qwen2.5:7b"></div>
+      <div class="field" id="key-field" hidden><label for="api-key" data-i18n="apiKey">API 키</label><input id="api-key" type="password" autocomplete="off" spellcheck="false" maxlength="512"><button type="button" class="text-button" id="clear-key" data-i18n="clearKey">키 지우기</button></div>
+      <p class="hint" id="provider-hint"></p>
+    </section>
+    <section class="card">
+      <div class="section-heading"><span class="step">02</span><h3 data-i18n="request">만들고 싶은 작업</h3></div>
+      <label class="visually-hidden" for="prompt" data-i18n="request">만들고 싶은 작업</label>
+      <textarea id="prompt" rows="5" maxlength="6000" data-i18n-placeholder="promptPlaceholder"></textarea>
+      <div class="presets" aria-label="Examples"><button type="button" data-preset="title" data-i18n="presetTitle">키네틱 타이틀</button><button type="button" data-preset="null" data-i18n="presetNull">널 컨트롤</button><button type="button" data-preset="shape" data-i18n="presetShape">도형 모션</button></div>
+      <label class="checkbox"><input id="share-context" type="checkbox" checked><span data-i18n="shareContext">현재 컴포지션 정보를 AI에 포함</span></label>
+      <p class="hint" data-i18n="contextHint">크기·길이·FPS만 전달합니다. 영상이나 파일은 업로드하지 않습니다.</p>
+      <div class="button-row"><button id="generate" class="primary" type="button" data-i18n="generate">작업 생성</button><button id="cancel" class="secondary" type="button" hidden data-i18n="cancel">취소</button></div>
+      <button type="button" class="text-button demo-button" id="demo" data-i18n="demo">AI 연결 없이 데모 사용</button>
+    </section>
+    <section class="card preview-card" id="preview-section">
+      <div class="section-heading"><span class="step">03</span><h3 data-i18n="preview">실행 미리보기</h3><span id="action-count" class="count">0</span></div>
+      <p id="empty-preview" class="empty" data-i18n="emptyPreview">작업을 생성하면 여기에 표시됩니다.</p>
+      <div id="plan-preview" hidden><p id="plan-summary"></p><ol id="action-list"></ol>
+        <details><summary data-i18n="jsonDetails">작업 JSON 보기</summary><pre id="plan-json" tabindex="0"></pre></details>
+      </div>
+      <button type="button" class="primary apply-button" id="apply" disabled data-i18n="apply">AE에서 실행</button>
+      <p class="hint" data-i18n="undoHint">새 레이어를 만듭니다. 실행 후 Ctrl/Cmd + Z 한 번으로 되돌릴 수 있습니다.</p>
+    </section>
+    <div id="status" role="status" aria-live="polite" class="status"></div>
+    <footer><span>MIT LICENSE</span><span>LOCAL FIRST · NO HIGGSFIELD</span></footer>
+  </main>
+  <script src="shared/plan.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/providers.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html>

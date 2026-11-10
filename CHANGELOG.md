@@ -1,5 +1,12 @@
 # Changelog
 
+## License notice update — 2026-11-10
+
+- Replace the current distribution's MIT notice with AE AI Studio Use-Only License 1.0: no redistribution or resale without prior written permission.
+- Keep personal/internal use, private modification, backups, and commercial creative outputs permitted.
+- Update the three language guides, panel notice, package metadata, source headers, ZIP, and checksum.
+- App functionality and version `1.0.0-beta.1` are unchanged. Earlier MIT grants and GitHub platform rights remain unaffected.
+
 ## 1.0.0-beta.1 — Beta 1.0.0
 
 - Dockable After Effects CEP panel built with JavaScript and ExtendScript.

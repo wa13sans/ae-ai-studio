@@ -2,7 +2,7 @@
 
 An independent, dockable After Effects CEP panel that turns natural-language requests into previewable plans and creates motion graphics layers.
 
-**Version:** `1.0.0-beta.1` · **License:** MIT · **Languages:** Korean / English / Simplified Chinese
+**Version:** `1.0.0-beta.1` · **License:** [Use-only · no redistribution or resale](../LICENSE) · **Languages:** Korean / English / Simplified Chinese
 
 [한국어](../README.md) · [简体中文](README.zh-CN.md) · [Testing](TESTING.md)
 
@@ -95,4 +95,14 @@ Close AE and remove only the `com.aeaistudio.panel` installation folder. Restore
 
 To disable unsigned CEP extensions, set `PlayerDebugMode` to `0` for CSXS.11 and CSXS.12. Windows registry locations: `HKCU\Software\Adobe\CSXS.11` and `CSXS.12`. macOS example: `defaults write com.adobe.CSXS.11 PlayerDebugMode 0` and repeat for `CSXS.12`. This affects other unsigned CEP panels too.
 
-See the [Korean README](../README.md#참고-문서) for official implementation references. MIT covers this source code; Adobe and AI provider services have separate terms.
+See the [Korean README](../README.md#참고-문서) for official implementation references.
+
+## License
+
+The [AE AI Studio Use-Only License 1.0](../LICENSE) permits personal learning, internal use, commercial creative work, private modification, and backups. Redistribution, resale, sublicensing, and bundling of the Software or modified copies or substantial code portions require the rights holder's prior written permission, even when supplied for free.
+
+You may publish, deliver, and sell rendered videos, images, MV/BGA work, and independent project files that do not contain substantial copies of the Software. Sharing the official download link is permitted.
+
+The new terms start with the license-change commit published on 2026-11-10 (Asia/Seoul); the app remains version `1.0.0-beta.1`. Prior MIT grants are not retroactively revoked. [Earlier MIT releases](https://github.com/wa13sans/ae-ai-studio/tree/f42fd4f73a69f3c56963b068cd613b417888f158) retain their terms.
+
+This is a custom restrictive license, not an open-source license. GitHub's public-repository viewing/forking rights, applicable legal exceptions, and third-party terms remain unaffected. Adobe and AI provider services have separate terms.

@@ -1,4 +1,4 @@
-/* AE AI Studio plan protocol. MIT. Shared ES3/ES5 implementation. */
+/* AE AI Studio plan protocol. Use-only license; see LICENSE. Shared ES3/ES5 implementation. */
 (function (root, factory) {
     var api = factory();
     if (typeof module !== "undefined" && module.exports) { module.exports = api; }

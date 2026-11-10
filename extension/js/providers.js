@@ -1,4 +1,4 @@
-/* AE AI Studio - MIT License. */
+/* AE AI Studio - Use-only license; see LICENSE. */
 (function (root, factory) {
     var api;
     if (root.AEAIPlan) { api = factory(root.AEAIPlan, null, null); }

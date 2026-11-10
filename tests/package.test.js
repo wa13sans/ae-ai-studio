@@ -13,7 +13,7 @@ function fixture(t) {
   const files = {
     'package.json': '{"version":"1.0.0-beta.1"}',
     'README.md': '한국어 English 中文',
-    'LICENSE': 'MIT',
+    'LICENSE': 'Fixture license text',
     'CHANGELOG.md': 'Beta',
     'extension/index.html': '<html></html>',
     'extension/CSXS/manifest.xml': '<ExtensionManifest/>',

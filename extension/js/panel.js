@@ -1,4 +1,4 @@
-/* AE AI Studio panel controller. MIT. No generated JavaScript is evaluated. */
+/* AE AI Studio panel controller. Use-only license; see LICENSE. No generated JavaScript is evaluated. */
 (function () {
   "use strict";
   var $ = function (id) { return document.getElementById(id); };

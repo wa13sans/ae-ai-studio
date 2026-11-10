@@ -2,6 +2,7 @@
   "use strict";
   var messages = {
     ko: {
+      licenseNotice:"재배포·재판매 금지",
       headline:"아이디어를 레이어로.",intro:"원하는 모션을 설명하고, 작업을 확인한 뒤 실행하세요.",
       connection:"AI 연결",provider:"사용할 AI",model:"모델 ID",apiKey:"API 키",clearKey:"키 지우기",
       request:"만들고 싶은 작업",promptPlaceholder:"예: 중앙에 'BEAT' 텍스트를 만들고, 0초부터 0.8초까지 아래에서 올라오며 나타나게 해줘. 널에 연결해줘.",
@@ -34,6 +35,7 @@
       shapePrompt:"현재 컴포지션에 민트색 사각형 하나와 흰색 원 하나를 만들고, 0초부터 1초까지 scale이 0에서 100으로 커지게 ease 키프레임을 넣어줘. 위치는 서로 겹치지 않게 배치해줘. 기존 레이어는 유지해줘. 컴포지션이 없으면 새로 만들어줘."
     },
     en: {
+      licenseNotice:"NO REDISTRIBUTION / RESALE",
       headline:"Ideas into layers.",intro:"Describe the motion. Review the steps. Bring it into AE.",
       connection:"Connect your AI",provider:"AI provider",model:"Model ID",apiKey:"API key",clearKey:"Clear key",
       request:"What would you like to create?",promptPlaceholder:"Example: Create centered 'BEAT' text. Animate it upward and fade in from 0 to 0.8 seconds. Parent it to a new null.",
@@ -65,6 +67,7 @@
       shapePrompt:"Create a mint rectangle and a white circle, positioned without overlap, in the current composition. Animate each scale from 0 to 100 over 0 to 1 second using ease. Preserve existing layers. Create a composition if none is open."
     },
     "zh-CN": {
+      licenseNotice:"禁止再分发及转售",
       headline:"让想法变成图层。",intro:"描述想要的动画，检查步骤，然后在 AE 中执行。",
       connection:"连接 AI",provider:"AI 服务",model:"模型 ID",apiKey:"API 密钥",clearKey:"清除密钥",
       request:"想创建什么？",promptPlaceholder:"例如：在中央创建 BEAT 文字，在 0 到 0.8 秒内从下方上移并淡入，然后连接到新的空对象。",

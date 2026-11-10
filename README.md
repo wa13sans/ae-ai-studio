@@ -2,7 +2,7 @@
 
 애프터 이펙트 안에서 자연어로 모션그래픽 작업을 요청하고, 작업 목록을 확인한 뒤 레이어와 애니메이션을 만드는 독립형 CEP 패널입니다.
 
-**버전:** `1.0.0-beta.1` · **라이선스:** MIT · **UI:** 한국어 / English / 简体中文
+**버전:** `1.0.0-beta.1` · **라이선스:** [사용 전용 · 재배포·재판매 금지](LICENSE) · **UI:** 한국어 / English / 简体中文
 
 [English](docs/README.en.md) · [简体中文](docs/README.zh-CN.md) · [검증 방법](docs/TESTING.md)
 
@@ -157,4 +157,14 @@ defaults write com.adobe.CSXS.12 PlayerDebugMode 0
 - [Claude Messages API](https://platform.claude.com/docs/en/api/messages)
 - [Ollama API](https://docs.ollama.com/api)
 
-MIT 라이선스는 이 패널의 소스 코드에 적용됩니다. Adobe 제품과 각 AI 제공사의 서비스 이용 조건은 별도로 적용됩니다.
+## 라이선스
+
+[AE AI Studio Use-Only License 1.0](LICENSE)을 적용합니다.
+
+- **허용:** 개인 학습, 내부 사용, 상업적 영상 제작, 비공개 수정 및 백업.
+- **금지:** 권리자의 사전 서면 허가 없는 프로그램·수정본·소스 상당 부분의 무료/유료 재배포, 재판매, 재라이선스 및 번들 배포.
+- **작업물:** 소프트웨어 코드를 포함하지 않는 MV·BGA 영상, 이미지, 프로젝트 결과물의 공개·납품·판매는 허용합니다. 공식 배포 링크도 공유할 수 있습니다.
+
+2026-11-10(한국 시간)의 라이선스 변경 커밋부터 이 조건으로 배포합니다. 앱 버전은 `1.0.0-beta.1`을 유지합니다. 이전 MIT 배포본에 이미 부여된 권한을 소급 취소하지 않습니다. [이전 MIT 커밋](https://github.com/wa13sans/ae-ai-studio/tree/f42fd4f73a69f3c56963b068cd613b417888f158)은 해당 조건을 유지합니다.
+
+재배포를 제한하는 사용자 정의 라이선스이므로 오픈 소스 라이선스가 아닙니다. 공개 저장소의 열람·GitHub 내 포크 권한은 [GitHub 약관](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#5-license-grant-to-other-users)에 따릅니다. Adobe 제품과 각 AI 제공사의 서비스 이용 조건은 별도로 적용됩니다.

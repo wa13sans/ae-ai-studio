@@ -1,6 +1,6 @@
 #include "json.jsx"
 #include "../shared/plan.js"
-/* All host changes are allowlisted, bounded and grouped into one Undo. MIT. */
+/* All host changes are allowlisted, bounded and grouped into one Undo. Use-only license; see LICENSE. */
 var AEAI = (function () {
     var own = Object.prototype.hasOwnProperty;
     var names = { position: "ADBE Position", scale: "ADBE Scale", rotation: "ADBE Rotate Z", opacity: "ADBE Opacity", anchorPoint: "ADBE Anchor Point" };

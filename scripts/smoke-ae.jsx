@@ -1,6 +1,6 @@
 #target aftereffects
 #include "../extension/host/bridge.jsx"
-/* AE AI Studio beta smoke test. MIT.
+/* AE AI Studio beta smoke test. Use-only license; see LICENSE.
    Run with File > Scripts > Run Script File. Creates one isolated test composition.
    Never saves the project or changes any existing layer. Undo once to remove the test.
    On a successful run the test comp remains open for visual inspection. */

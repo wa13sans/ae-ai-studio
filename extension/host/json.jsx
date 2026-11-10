@@ -1,4 +1,4 @@
-/* A deliberately small JSON codec for ExtendScript. Never evaluates source text. MIT. */
+/* A deliberately small JSON codec for ExtendScript. Never evaluates source text. Use-only license; see LICENSE. */
 var AEAIJSON = (function () {
     var own = Object.prototype.hasOwnProperty;
     function parse(text) {
